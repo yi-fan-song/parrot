@@ -22,6 +22,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		log.Printf("%s: %s: %s", r.Method, r.URL, r.Host)
 		w.Write([]byte(word))
 	})
 	err := http.ListenAndServe(":"+port, nil)
